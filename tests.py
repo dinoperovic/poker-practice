@@ -45,7 +45,7 @@ class HandTest(unittest.TestCase):
         self.assertEqual(Hand.from_string('3H 4H 4D 4C 3C').value, Hand.FULL_HOUSE)
         self.assertEqual(Hand.from_string('AS QS 4S 5S TS').value, Hand.FLUSH)
         self.assertEqual(Hand.from_string('4H 5C 3D 2H AC').value, Hand.STRAIGHT)
-        self.assertEqual(Hand.from_string('4H 4C 5D 3C 4D').value, Hand.TREE_OF_A_KIND)
+        self.assertEqual(Hand.from_string('4H 4C 5D 3C 4D').value, Hand.THREE_OF_A_KIND)
         self.assertEqual(Hand.from_string('AH 4C 4D 3H 3C').value, Hand.TWO_PAIR)
         self.assertEqual(Hand.from_string('AH 4C 4D 5H 3C').value, Hand.ONE_PAIR)
         self.assertEqual(Hand.from_string('AH 5C 4D 3H 7C').value, Hand.HIGH_CARD)
@@ -80,10 +80,10 @@ class HandTest(unittest.TestCase):
         self.assertTrue(Hand.from_string('4H 5C 3D 2H AC').is_straight())
         self.assertTrue(Hand.from_string('9H TC JD QH KC').is_straight())
 
-    def test_is_tree_of_a_kind(self):
-        self.assertFalse(Hand.from_string('AH 5C 3D 2H 3C').is_tree_of_a_kind())
-        self.assertTrue(Hand.from_string('4H 4C 3D 3C 4D').is_tree_of_a_kind())
-        self.assertTrue(Hand.from_string('8H 7D 8S 8D 8C').is_tree_of_a_kind())
+    def test_is_three_of_a_kind(self):
+        self.assertFalse(Hand.from_string('AH 5C 3D 2H 3C').is_three_of_a_kind())
+        self.assertTrue(Hand.from_string('4H 4C 3D 3C 4D').is_three_of_a_kind())
+        self.assertTrue(Hand.from_string('8H 7D 8S 8D 8C').is_three_of_a_kind())
 
     def test_is_two_pair(self):
         self.assertFalse(Hand.from_string('4H 4C 4D 3H 3C').is_two_pair())

@@ -55,7 +55,7 @@ class Hand(object):
     HIGH_CARD = 1
     ONE_PAIR = 2
     TWO_PAIR = 3
-    TREE_OF_A_KIND = 4
+    THREE_OF_A_KIND = 4
     STRAIGHT = 5
     FLUSH = 6
     FULL_HOUSE = 7
@@ -67,7 +67,7 @@ class Hand(object):
         (HIGH_CARD, 'High Card'),
         (ONE_PAIR, 'One Pair'),
         (TWO_PAIR, 'Two Pair'),
-        (TREE_OF_A_KIND, 'Tree of a Kind'),
+        (THREE_OF_A_KIND, 'Three of a Kind'),
         (STRAIGHT, 'Straight'),
         (FLUSH, 'Flush'),
         (FULL_HOUSE, 'Full House'),
@@ -154,7 +154,7 @@ class Hand(object):
             values.insert(0, -1)
         return values == range(values[0], values[-1] + 1)
 
-    def is_tree_of_a_kind(self):
+    def is_three_of_a_kind(self):
         """Any three numerically matching cards"""
         values = [x.value for x in self.cards]
         value = max(set(values), key=values.count)
